@@ -8,10 +8,13 @@ class Lamplighter < Formula
   desc "Lamplighter: run a Lantern node that helps people around internet censorship"
   homepage "https://lamplighter.lantern.io"
   version "0.0.208"
-  # A new name for the same release: the revision makes brew upgrade
-  # reinstall a migrated lantern-box keg, so its service gets the new command.
+  # A new name for the same release: once the rename to lamplighter is
+  # published here, the revision makes brew upgrade reinstall a migrated
+  # lantern-box keg, so its service gets the new command.
   revision 1
   license "GPL-3.0-or-later"
+
+  conflicts_with "lantern-box"
 
   on_macos do
     if Hardware::CPU.intel?
@@ -54,13 +57,7 @@ class Lamplighter < Formula
   end
 
   def post_install
-    { var/"lantern-node" => var/"lamplighter", etc/"lantern-node.args" => etc/"lamplighter.args" }.each do |old, new|
-      # exist? follows symlinks, so a dangling one would look absent.
-      next unless old.exist? || old.symlink?
-      next if new.exist? || new.symlink?
-
-      old.rename(new)
-    end
+    (var/"lantern-node").rename(var/"lamplighter") if (var/"lantern-node").directory? && !(var/"lamplighter").exist?
   end
 
   def caveats
