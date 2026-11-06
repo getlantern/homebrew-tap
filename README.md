@@ -11,6 +11,6 @@ brew install getlantern/tap/lamplighter
 brew services start lamplighter
 ```
 
-See [lamplighter.lantern.io](https://lamplighter.lantern.io) for its options and how to manage it. The formula was called `lantern-box` until it was renamed. `brew upgrade` moves an install of that name to `lamplighter`, keeping the node's identity and flags.
+See [lamplighter.lantern.io](https://lamplighter.lantern.io) for its options and how to manage it. The formula was called `lantern-box`. It stays here until lantern-box's installer uses the new name, and then `brew upgrade` will move installs of it to `lamplighter`, keeping the node's identity and flags.
 
 The formulae here are published by each project's release, so don't edit them by hand.

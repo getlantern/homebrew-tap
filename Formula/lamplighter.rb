@@ -55,7 +55,11 @@ class Lamplighter < Formula
 
   def post_install
     { var/"lantern-node" => var/"lamplighter", etc/"lantern-node.args" => etc/"lamplighter.args" }.each do |old, new|
-      old.rename(new) if old.exist? && !new.exist?
+      # exist? follows symlinks, so a dangling one would look absent.
+      next unless old.exist? || old.symlink?
+      next if new.exist? || new.symlink?
+
+      old.rename(new)
     end
   end
 
