@@ -5,13 +5,13 @@
 class Lamplighter < Formula
   desc "Lamplighter: run a Lantern node that helps people around internet censorship"
   homepage "https://lamplighter.lantern.io"
-  version "0.0.212"
+  version "0.0.227"
   license "GPL-3.0-or-later"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.212/lantern-box_0.0.212_darwin_amd64.tar.gz"
-      sha256 "279970a82d5f67bee0a05d5c8575ee050854d1c397dc0b695add652639205282"
+      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.227/lantern-box_0.0.227_darwin_amd64.tar.gz"
+      sha256 "0c060883765be59f665f99152380f31ea19070f2a469d75fcadc74f57984098e"
 
       define_method(:install) do
         bin.install "lantern-box"
@@ -19,8 +19,8 @@ class Lamplighter < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.212/lantern-box_0.0.212_darwin_arm64.tar.gz"
-      sha256 "2453b26746cfe7a35e706c346658c003bfb7c85a60c80fd8cb3e2da23671b937"
+      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.227/lantern-box_0.0.227_darwin_arm64.tar.gz"
+      sha256 "8021ad3c4f6f69304fc230cad3fcfe6d1a49c77df0df6c26eba1b87e0a4be1b0"
 
       define_method(:install) do
         bin.install "lantern-box"
@@ -31,16 +31,16 @@ class Lamplighter < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.212/lantern-box_0.0.212_linux_amd64.tar.gz"
-      sha256 "ee4071a6683cf1ac9fd4f93baefc3b69c004120ed5cc5d2a84ade93ae8c0ad52"
+      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.227/lantern-box_0.0.227_linux_amd64.tar.gz"
+      sha256 "2c719eb085c84c964ce67ea202b88b2c8b1fa799e1afafc30b44d52772d73617"
       define_method(:install) do
         bin.install "lantern-box"
         bin.install_symlink bin/"lantern-box" => "lamplighter"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.212/lantern-box_0.0.212_linux_arm64.tar.gz"
-      sha256 "0eadc59b19c56366886c518478b0966bbf92c300a0a559a0458908bd8214665c"
+      url "https://github.com/getlantern/lantern-box/releases/download/v0.0.227/lantern-box_0.0.227_linux_arm64.tar.gz"
+      sha256 "f48653fc15a354130d5cae60ef947cda3dcd3adc9a68c07efaed33c2919f244d"
       define_method(:install) do
         bin.install "lantern-box"
         bin.install_symlink bin/"lantern-box" => "lamplighter"
